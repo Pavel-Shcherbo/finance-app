@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Планировщик Внеурочной Деятельности</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Планировщик Внеурочной Деятельности</h1>
+    </header>
+
+    <main>
+        <section id="activities">
+            <h2>Добавить Занятие</h2>
+            <form id="activity-form">
+                <label for="activity-name">Название:</label>
+                <input type="text" id="activity-name" name="activity-name" required><br>
+
+                <label for="day">День недели:</label>
+                <select id="day" name="day" required>
+                    <option value="понедельник">Понедельник</option>
+                    <option value="вторник">Вторник</option>
+                    <option value="среда">Среда</option>
+                    <option value="четверг">Четверг</option>
+                    <option value="пятница">Пятница</option>
+                    <option value="суббота">Суббота</option>
+                    <option value="воскресенье">Воскресенье</option>
+                </select><br>
+
+                <label for="time">Время:</label>
+                <input type="time" id="time" name="time" required><br>
+
+                <label for="duration">Длительность (в минутах):</label>
+                <input type="number" id="duration" name="duration" min="15" step="15" value="60"><br>
+
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+
+        <section id="schedule">
+            <h2>Расписание</h2>
+            <div id="schedule-table">
+                <!-- Расписание будет отображаться здесь -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Планировщик Внеурочной Деятельности</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

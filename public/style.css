@@ -1,0 +1,111 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 450px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+input[type="text"], input[type="time"] {
+  flex: 1;
+  padding: 10px 12px;
+  border: 2px solid #74b9ff;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="time"]:focus {
+  outline: none;
+  border-color: #0984e3;
+}
+
+button {
+  background-color: #0984e3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #74b9ff;
+}
+
+#schedule-list {
+  list-style: none;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#schedule-list li {
+  background-color: #dfe6e9;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 16px;
+  color: #2d3436;
+}
+
+/* Иконка часов слева */
+#schedule-list li svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  stroke: #0984e3;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* При наведении подсвечиваем элемент */
+#schedule-list li:hover {
+  background-color: #b2bec3;
+  cursor: default;
+}
+.delete-activity {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em; /* Меньший размер шрифта для кнопки */
+    margin-left: 5px; /* Отступ слева от названия занятия */
+}
+
+.delete-activity:hover {
+    background-color: #c9302c;
+}
