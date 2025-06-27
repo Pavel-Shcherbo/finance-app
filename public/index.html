@@ -3,56 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Планировщик занятий</title>
+    <title>Планировщик Внеурочной Деятельности</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Планировщик занятий</h1>
-            <p class="subtitle">Управляйте своим расписанием</p>
+            <h1>Планировщик Внеурочной Деятельности</h1>
         </header>
 
         <main>
-            <section class="form-card">
-                <form id="activity-form">
-                    <div class="form-grid">
+            <section id="activities" class="form-section">
+                <h2>Добавить Занятие</h2>
+                <form id="activity-form" class="activity-form">
+                    <div class="form-group">
+                        <label for="activity-name">Название:</label>
+                        <input type="text" id="activity-name" name="activity-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="day">День недели:</label>
+                        <select id="day" name="day" required>
+                            <option value="понедельник">Понедельник</option>
+                            <option value="вторник">Вторник</option>
+                            <option value="среда">Среда</option>
+                            <option value="четверг">Четверг</option>
+                            <option value="пятница">Пятница</option>
+                            <option value="суббота">Суббота</option>
+                            <option value="воскресенье">Воскресенье</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="activity-name">Название занятия</label>
-                            <input type="text" id="activity-name" required>
+                            <label for="time">Время:</label>
+                            <input type="time" id="time" name="time" required>
                         </div>
+
                         <div class="form-group">
-                            <label for="day">День недели</label>
-                            <select id="day" required>
-                                <option value="">Выберите день</option>
-                                <option value="понедельник">Понедельник</option>
-                                <option value="вторник">Вторник</option>
-                                <option value="среда">Среда</option>
-                                <option value="четверг">Четверг</option>
-                                <option value="пятница">Пятница</option>
-                                <option value="суббота">Суббота</option>
-                                <option value="воскресенье">Воскресенье</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Время</label>
-                            <input type="time" id="time" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="duration">Длительность (мин)</label>
-                            <input type="number" id="duration" min="1" max="480" value="60" required>
+                            <label for="duration">Длительность (в минутах):</label>
+                            <input type="number" id="duration" name="duration" min="15" step="15" value="60">
                         </div>
                     </div>
-                    <button type="submit" class="btn">Добавить занятие</button>
+
+                    <button type="submit" class="btn-primary">Добавить</button>
                 </form>
             </section>
 
-            <section class="schedule-container">
-                <div class="table-wrapper">
-                    <div id="schedule-table"></div>
+            <section id="schedule" class="schedule-section">
+                <h2>Расписание</h2>
+                <div id="schedule-table" class="schedule-container">
+                    <!-- Расписание будет отображаться здесь -->
                 </div>
             </section>
         </main>
+
+        <footer>
+            <p>© 2025 Планировщик Внеурочной Деятельности</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
