@@ -3,53 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Планировщик Внеурочной Деятельности</title>
+    <meta name="description" content="Финансовое приложение для планирования занятий и активностей">
+    <title>Планировщик занятий | Finance App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Планировщик">
 </head>
 <body>
-    <header>
-        <h1>Планировщик Внеурочной Деятельности</h1>
-    </header>
-
-    <main>
-        <section id="activities">
-            <h2>Добавить Занятие</h2>
-            <form id="activity-form">
-                <label for="activity-name">Название:</label>
-                <input type="text" id="activity-name" name="activity-name" required><br>
-
-                <label for="day">День недели:</label>
-                <select id="day" name="day" required>
-                    <option value="понедельник">Понедельник</option>
-                    <option value="вторник">Вторник</option>
-                    <option value="среда">Среда</option>
-                    <option value="четверг">Четверг</option>
-                    <option value="пятница">Пятница</option>
-                    <option value="суббота">Суббота</option>
-                    <option value="воскресенье">Воскресенье</option>
-                </select><br>
-
-                <label for="time">Время:</label>
-                <input type="time" id="time" name="time" required><br>
-
-                <label for="duration">Длительность (в минутах):</label>
-                <input type="number" id="duration" name="duration" min="15" step="15" value="60"><br>
-
-                <button type="submit">Добавить</button>
-            </form>
-        </section>
-
-        <section id="schedule">
-            <h2>Расписание</h2>
-            <div id="schedule-table">
-                <!-- Расписание будет отображаться здесь -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h1>Планировщик занятий</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="toggle-theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <footer>
-        <p>© 2025 Планировщик Внеурочной Деятельности</p>
-    </footer>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Activity Form Section -->
+            <section class="form-section">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2><i class="fas fa-plus-circle"></i> Добавить занятие</h2>
+                        <p>Создайте новое занятие в вашем расписании</p>
+                    </div>
+                    
+                    <form id="activity-form" class="activity-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="activity-name">
+                                    <i class="fas fa-tag"></i>
+                                    Название занятия
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="activity-name" 
+                                    placeholder="Например: Йога, Встреча с клиентом"
+                                    required
+                                    maxlength="50"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="day">
+                                    <i class="fas fa-calendar-day"></i>
+                                    День недели
+                                </label>
+                                <select id="day" required>
+                                    <option value="">Выберите день</option>
+                                    <option value="понедельник">Понедельник</option>
+                                    <option value="вторник">Вторник</option>
+                                    <option value="среда">Среда</option>
+                                    <option value="четверг">Четверг</option>
+                                    <option value="пятница">Пятница</option>
+                                    <option value="суббота">Суббота</option>
+                                    <option value="воскресенье">Воскресенье</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">
+                                    <i class="fas fa-clock"></i>
+                                    Время начала
+                                </label>
+                                <input 
+                                    type="time" 
+                                    id="time" 
+                                    min="09:00" 
+                                    max="20:30" 
+                                    step="1800"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    Длительность (мин)
+                                </label>
+                                <select id="duration" required>
+                                    <option value="">Выберите длительность</option>
+                                    <option value="30">30 минут</option>
+                                    <option value="60">1 час</option>
+                                    <option value="90">1.5 часа</option>
+                                    <option value="120">2 часа</option>
+                                    <option value="180">3 часа</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-plus"></i>
+                            Добавить занятие
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section class="schedule-section">
+                <div class="schedule-header">
+                    <h2><i class="fas fa-calendar-week"></i> Расписание занятий</h2>
+                    <div class="schedule-controls">
+                        <button class="btn btn-outline" id="refresh-schedule">
+                            <i class="fas fa-sync-alt"></i>
+                            Обновить
+                        </button>
+                        <button class="btn btn-outline" id="export-schedule">
+                            <i class="fas fa-download"></i>
+                            Экспорт
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="schedule-container">
+                    <div id="schedule-table" class="schedule-table"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Finance App. Создано для управления расписанием.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Помощь</a>
+                    <a href="#" class="footer-link">О приложении</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Загрузка...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
 
     <script src="script.js"></script>
 </body>
