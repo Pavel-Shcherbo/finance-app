@@ -9,6 +9,21 @@ const HOST = process.env.HOST || '0.0.0.0';
 app.use(cors());
 app.use(express.json()); // bodyParser.json()
 
+// Логирование всех запросов
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url} from ${req.ip}`);
+  next();
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 // Статические файлы
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -59,4 +74,7 @@ app.use((req, res) => {
 
 app.listen(PORT, HOST, () => {
   console.log(`Сервер запущен на http://${HOST}:${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Process ID: ${process.pid}`);
+  console.log('Сервер готов принимать соединения...');
 });
