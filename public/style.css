@@ -1,4 +1,4 @@
-/* Сброс стилей и базовые настройки */
+/* Сброс стилей и базовая настройка */
 * {
     margin: 0;
     padding: 0;
@@ -9,65 +9,58 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    padding: 20px;
     color: #333;
+    line-height: 1.6;
+    padding: 20px;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
-/* Заголовок */
 header {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 30px;
+    padding: 40px 30px;
     text-align: center;
 }
 
 header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -1px;
 }
 
-/* Основной контент */
 main {
-    padding: 30px;
+    padding: 40px 30px;
 }
 
-/* Секция формы */
 .form-section {
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid #e2e8f0;
+    margin-bottom: 50px;
 }
 
 .form-section h2 {
-    color: #1e293b;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 400;
 }
 
-/* Форма */
-.activity-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+#activity-form {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    margin-bottom: 25px;
 }
 
 .form-row {
@@ -77,74 +70,66 @@ main {
 }
 
 label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: 500;
-    color: #374151;
-    font-size: 0.9rem;
+    color: #555;
 }
 
-input[type="text"],
-input[type="time"],
-input[type="number"],
+input[type="text"], 
+input[type="time"], 
+input[type="number"], 
 select {
+    width: 100%;
     padding: 12px 16px;
-    border: 2px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.2s ease;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
     background: white;
 }
 
-input[type="text"]:focus,
-input[type="time"]:focus,
-input[type="number"]:focus,
+input[type="text"]:focus, 
+input[type="time"]:focus, 
+input[type="number"]:focus, 
 select:focus {
     outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Кнопки */
 .btn-primary {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
-    padding: 14px 28px;
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 16px;
     font-weight: 500;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease;
-    align-self: flex-start;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-/* Секция расписания */
-.schedule-section {
-    margin-top: 20px;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
 .schedule-section h2 {
-    color: #1e293b;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 400;
 }
 
-.schedule-container {
+.table-container {
     overflow-x: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Таблица расписания */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -153,59 +138,58 @@ table {
 }
 
 th {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    padding: 16px 12px;
-    text-align: center;
+    background: #f8f9fa;
+    color: #495057;
     font-weight: 600;
-    color: #475569;
-    border-bottom: 2px solid #e2e8f0;
-    font-size: 0.9rem;
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 2px solid #e9ecef;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 td {
-    padding: 12px;
+    padding: 15px;
+    border-bottom: 1px solid #f1f3f4;
     text-align: center;
-    border-bottom: 1px solid #f1f5f9;
     vertical-align: middle;
-    font-size: 0.9rem;
+    position: relative;
 }
 
 tr:hover {
-    background-color: #f8fafc;
+    background-color: #f8f9fa;
 }
 
 td:first-child {
-    font-weight: 600;
-    color: #475569;
-    background: #f8fafc;
-    border-right: 1px solid #e2e8f0;
+    font-weight: 500;
+    color: #667eea;
+    width: 100px;
 }
 
-/* Кнопка удаления */
 .delete-btn {
-    background: #ef4444;
+    background: #dc3545;
     color: white;
     border: none;
     padding: 6px 12px;
-    font-size: 0.8rem;
     border-radius: 6px;
+    font-size: 12px;
     cursor: pointer;
-    margin-left: 8px;
+    margin-left: 10px;
     transition: all 0.2s ease;
 }
 
 .delete-btn:hover {
-    background: #dc2626;
+    background: #c82333;
     transform: scale(1.05);
 }
 
-/* Футер */
 footer {
-    background: #1e293b;
-    color: #94a3b8;
+    background: #f8f9fa;
+    padding: 20px 30px;
     text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
+    color: #6c757d;
+    font-size: 14px;
 }
 
 /* Адаптивность для планшетов */
@@ -215,38 +199,37 @@ footer {
     }
     
     .container {
-        border-radius: 12px;
+        border-radius: 15px;
     }
     
     header {
-        padding: 20px;
+        padding: 30px 20px;
     }
     
     header h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     
     main {
-        padding: 20px;
+        padding: 30px 20px;
     }
     
-    .form-section {
+    #activity-form {
         padding: 20px;
     }
     
     .form-row {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 0;
+    }
+    
+    table {
+        min-width: 600px;
     }
     
     th, td {
-        padding: 10px 8px;
-        font-size: 0.8rem;
-    }
-    
-    .schedule-container {
-        margin: -10px;
-        padding: 10px;
+        padding: 12px 8px;
+        font-size: 13px;
     }
 }
 
@@ -257,73 +240,40 @@ footer {
     }
     
     .container {
-        border-radius: 8px;
+        border-radius: 10px;
     }
     
     header {
-        padding: 15px;
+        padding: 20px 15px;
     }
     
     header h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     
     main {
-        padding: 15px;
-    }
-    
-    .form-section {
-        padding: 15px;
-        margin-bottom: 20px;
+        padding: 20px 15px;
     }
     
     .form-section h2,
     .schedule-section h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     
-    input[type="text"],
-    input[type="time"],
-    input[type="number"],
+    #activity-form {
+        padding: 15px;
+    }
+    
+    input[type="text"], 
+    input[type="time"], 
+    input[type="number"], 
     select {
         padding: 10px 12px;
-        font-size: 16px; /* Предотвращает зум на iOS */
+        font-size: 16px;
     }
     
     .btn-primary {
-        width: 100%;
-        padding: 12px;
-    }
-    
-    table {
-        min-width: 600px;
-    }
-    
-    th, td {
-        padding: 8px 6px;
-        font-size: 0.75rem;
-    }
-    
-    .delete-btn {
-        padding: 4px 8px;
-        font-size: 0.7rem;
-    }
-    
-    footer {
-        padding: 15px;
-        font-size: 0.8rem;
-    }
-}
-
-/* Дополнительные улучшения для очень маленьких экранов */
-@media (max-width: 320px) {
-    header h1 {
-        font-size: 1.1rem;
-    }
-    
-    .form-section h2,
-    .schedule-section h2 {
-        font-size: 1.1rem;
+        padding: 12px 20px;
     }
     
     table {
@@ -331,7 +281,22 @@ footer {
     }
     
     th, td {
-        padding: 6px 4px;
-        font-size: 0.7rem;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+    
+    td:first-child {
+        width: 80px;
+    }
+    
+    .delete-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    
+    footer {
+        padding: 15px;
+        font-size: 12px;
     }
 }
