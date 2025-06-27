@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const DAYS_OF_WEEK = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
 
+    // Определяем базовый URL для API
+    const API_BASE_URL = window.location.origin;
+
     // Загрузка данных из localStorage при старте
     function loadFromLocalStorage() {
         const data = localStorage.getItem('activities');
@@ -27,21 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Загрузка занятий с сервера и из localStorage
     async function loadActivities() {
         try {
-            const response = await fetch('http://localhost:3000/api/activities');
+            const response = await fetch(`${API_BASE_URL}/api/activities`);
             if (!response.ok) throw new Error('Ошибка загрузки занятий');
             activities = await response.json();
+            console.log('Данные успешно загружены с сервера:', activities);
         } catch (error) {
-            console.error(error);
+            console.error('Ошибка загрузки с сервера:', error);
             alert('Не удалось загрузить занятия с сервера. Используются локальные данные.');
+            loadFromLocalStorage(); // Используем локальные данные только при ошибке
         }
-        loadFromLocalStorage(); // Перезаписываем локальные данные после получения с сервера
         renderSchedule();
     }
 
     // Добавление нового занятия через API и локальное хранилище
     async function addActivity(activity) {
         try {
-            const response = await fetch('http://localhost:3000/api/activities', {
+            const response = await fetch(`${API_BASE_URL}/api/activities`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(activity)
@@ -52,9 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const savedActivity = await response.json();
             activities.push(savedActivity);
+            console.log('Занятие добавлено:', savedActivity);
         } catch (error) {
             alert(error.message);
-            console.error(error);
+            console.error('Ошибка добавления:', error);
         }
         saveToLocalStorage();
         renderSchedule();
@@ -63,12 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Удаление занятия через API и локальное хранилище
     async function deleteActivity(id) {
         try {
-            const response = await fetch(`http://localhost:3000/api/activities/${id}`, { method: 'DELETE' });
+            const response = await fetch(`${API_BASE_URL}/api/activities/${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error('Ошибка при удалении занятия');
             activities = activities.filter(a => a._id !== id);
+            console.log('Занятие удалено:', id);
         } catch (error) {
             alert(error.message);
-            console.error(error);
+            console.error('Ошибка удаления:', error);
         }
         saveToLocalStorage();
         renderSchedule();
@@ -172,6 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
           event.target.reset();
       });
 
-      loadActivities(); // Инициализация при старте
+      // Инициализация при старте
+      console.log('Инициализация приложения, API URL:', API_BASE_URL);
+      loadActivities();
 
 });
